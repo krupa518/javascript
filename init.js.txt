@@ -1,0 +1,77 @@
+// Task-1
+//=============
+
+function sum(a, b) {
+  try {
+      if (isNaN(a) || isNaN(b)) {
+          throw "Input values are invalid, it's allows only numbers";
+      } else {
+          return a + b;
+      }
+  } catch (e) {
+      console.log("error ----->" + e);
+  }
+}
+console.log(sum(10, 20));
+
+//Task-2
+//================
+let compoundInterst = 0;
+let principle = 3000;
+let time = 10;
+let rate = 5;
+let noCompund = 4;
+function ci(p, t, r, n) {
+  t = t / 12;
+  compoundInterst = (p * Math.pow((1 + (r / (n * 100))), (n * t)));
+  interest = compoundInterst - p;
+}
+ci(principle, time, rate, noCompund);
+
+let compoundIntersetObj = {
+  "interst": Math.ceil(interest),
+  "amount": Math.ceil(compoundInterst)
+}
+
+console.log(compoundIntersetObj);
+
+//Task-3
+//=================
+
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+
+function zipMeAll(arr1, arr2) {
+  return arr1.map(function (arr1, i) {
+      return [arr1, arr2[i]];
+  });
+};
+
+console.log(zipMeAll(arr1, arr2));
+
+//Task-4
+//==================
+const sortObjects = [
+  { a: 1, b: 2, c: 3 },
+  { a: 4, b: 2, c: 1 },
+  { a: 3, b: 7, c: 9 },
+]
+
+function compareObjects(object1, object2, key) {
+  const obj1 = object1[key];
+  const obj2 = object2[key];
+
+  if (obj1 < obj2) {
+      return -1;
+  }
+  if (obj1 > obj2) {
+      return 1;
+  }
+  return 0;
+}
+
+sortObjects.sort((sortObject1, sortObject2) => {
+  return compareObjects(sortObject1, sortObject2, 'a')
+});
+console.log(sortObjects);
+
